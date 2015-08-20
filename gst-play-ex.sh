@@ -15,7 +15,14 @@
 set -- `getopt v:q:ia $*`
 
 function opt_help {
-	echo "Usage: $0 [-v volume] [-i] [-a] [-q small|medium|hd720]" 1>&2
+	echo "Usage: $0 [-v volume] [-i] [-a] [-q small|medium|hd720] youtube_video_url" 1>&2
+    echo "multimedia player for youtube uri by using gstreamer." 1>&2
+    echo "" 1>&2
+    echo "Options:" 1>&2
+    echo "i: interactive mode." 1>&2
+    echo "a: sound only mode." 1>&2
+    echo "q: video quality. (default: small)" 1>&2
+    echo "v: volume of the video sound." 1>&2
 	exit 1
 }
 
@@ -59,7 +66,6 @@ do
 	esac
 done
 
-shift
 echo $@
 
 if [[ -z "$@" ]]; then
